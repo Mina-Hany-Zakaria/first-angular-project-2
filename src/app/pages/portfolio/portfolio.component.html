@@ -1,0 +1,20 @@
+<app-title>
+  <h1>portfolio component</h1>
+</app-title>
+
+<div class="row g-4">
+  @for (imagePath of imagesPaths; track $index) {
+  <div class="col-lg-4 col-md-6">
+    <app-portfolio-list
+      [imageURL]="imagePath"
+      (click)="show(imagePath)"
+    ></app-portfolio-list>
+  </div>
+  }
+</div>
+
+@if (showModel) {
+<app-model-window (click)="hide()">
+  <img alt="" [src]="imageSrc" />
+</app-model-window>
+}
